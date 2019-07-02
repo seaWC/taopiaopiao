@@ -1,0 +1,3 @@
+<view class="profile"><open-data type="userAvatarUrl" class="profile-img"></open-data><open-data type="userNickName"  class="profile-name"></open-data></view>
+<!-- getUserInfo	获取用户信息，可以从bindgetuserinfo回调中获取到用户信息 -->
+<button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">获取用户信息</button>

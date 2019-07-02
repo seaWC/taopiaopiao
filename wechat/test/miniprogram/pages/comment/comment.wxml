@@ -1,0 +1,68 @@
+<view class=''>
+  <view class='detail-container' style='background: url({{detail.images.large}}) no-repeat  top/cover'></view>
+  <view class='detail-mask'></view>
+  <view class='detail-info'>
+    <image src="{{detail.images.large}}" class='detail-img'></image>
+    <view class='detail'>
+      <view class='detail-nm'>{{detail.title}}</view>
+      <view>{{detail.original_title}}</view>
+      <view class='detail.sc'>{{detail.rating.average}}分</view>
+      <view>{{detail.countries[0]}}</view>
+      <view>导演：{{detail.directors[0].name}}</view>
+      <view>上映时间：{{detail.mainland_pubdate}}</view>
+    </view>
+  </view>
+
+  <van-tabs animated>
+    <van-tab title="简介">
+      <view class='desc'>{{detail.summary}}</view>
+      <view>
+        演员:
+        <text  wx:for="{{detail.writers}}" wx:key="{{index}}">{{item.name}} {{item.name_en}}</text>
+      </view>
+      <text>剧照：</text>
+      <view>
+        <image class="images-icon" wx:for="{{detail.photos}}"   wx:key="{{index}}" data-iconid="{{item.id}}" src="{{item.icon}}"></image>
+      </view>
+    </van-tab>
+    <van-tab title="影评">
+      <!-- 评价 -->
+      <view class="comment-container">
+        <van-field value="{{ content }}" placeholder="写一些评价吧" bind:change="onContentChange" />
+        <van-rate value="{{ score }}" bind:change="onScoreChange" />
+        <van-button type="warning" bindtap="uploadImg">上传图片</van-button>
+        <view>
+          <image class="comment-img" src="{{item}}" wx:for="{{images}}" wx:key="{{index}}"></image>
+        </view>
+        <van-button size="large" type="danger" bindtap="submit" data-id="{{detail.id}}">提交评价</van-button>
+      </view>
+      <view class="popular_comments" wx:for="{{detail.popular_comments}}" wx:key="{{index}}">
+        用户ID:
+        <text>{{item.id}}</text>
+        内容：
+        <text>{{item.content}}</text>
+        时间：
+        <text>{{item.created_at}}</text>
+        阅读：
+        <text>{{item.useful_count}}</text>
+        
+      </view>
+    </van-tab>
+    <van-tab title="讨论">
+      <!-- 显示评价内容 -->
+      <text wx:if="{{detailTxetTrue}}">讨论：</text>
+      <view class='detail-txet' wx:for='{{detailTxet}}' wx:key='{{index}}'>
+        <!-- <text>用户{{index}}：{{item.content}}</text>
+        <text wx:if="{{item.subTime}}">{{item.subTime}}</text> -->
+        <view class="profile">
+          <open-data type="userAvatarUrl" class="profile-img"></open-data>
+          <open-data type="userNickName" class="profile-name"></open-data>
+        </view>
+        <view class="profile-content">{{item.content}}</view>
+
+      </view>
+    </van-tab>
+  </van-tabs>
+
+
+</view>

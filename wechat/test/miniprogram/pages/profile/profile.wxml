@@ -1,0 +1,20 @@
+<view class="profile-header">
+  <open-data type="userAvatarUrl" class="profile-img"></open-data>
+  <open-data type="userNickName"  class="profile-name"></open-data>
+</view>
+<van-row custom-class="v-row">
+  <van-col span="12" custom-class="v-col">
+    <image class="profile-m1" src='../../images/m1.svg'></image>
+    <text class="profile-text1">电影票</text>
+  </van-col>
+  <van-col span="12" custom-class="v-col">
+    <image class="profile-m1" src='../../images/m2.svg'></image>
+    <text class="profile-text1">优惠券</text>
+  </van-col>
+</van-row>
+<van-row custom-class="v-row">
+  <van-cell custom-class="v-cell" title="淘票票乐影卡" is-link />
+</van-row>
+<van-row custom-class="v-row">
+  <van-cell custom-class="v-cell" title="帮助与反馈" is-link  value="咨询票小蜜" />
+</van-row>

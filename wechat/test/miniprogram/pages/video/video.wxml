@@ -1,0 +1,12 @@
+<van-row custom-class="v-row">
+  <van-col span="4" custom-class="v-col" data-id='出发城市'>
+    <van-icon name="location" />
+    <text class="profile-text1" bindtap='bindBeginCityView'>{{begin}}</text>
+  </van-col>
+  <van-col span="20" custom-class="v-col">
+    <van-search custom-class="" value="{{ value }}" placeholder="请输入搜索关键词" use-action-slot bind:search="onSearch">
+      <view slot="action" bind:tap="onSearch">搜索</view>
+    </van-search>
+  </van-col>
+</van-row>
+

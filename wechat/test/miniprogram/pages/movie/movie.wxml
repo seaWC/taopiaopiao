@@ -1,0 +1,42 @@
+<view>
+  <van-search value="{{ value }}" placeholder="搜索电影、电视剧、综艺、影人" show-action bind:search="onSearch" bind:cancel="onCancel" />
+</view>
+<van-tabs animated class="nav-tabs">
+  <van-tab title="电影">
+    <!-- 电影 -->
+    <view class="movie" wx:for="{{movieList}}" wx:key="{{index}}">
+      <image class="movie-img" src="{{item.images.small}}" catchtap="gotoComment" data-movieid="{{item.id}}"></image>
+      <view class="movie-info" catchtap="gotoComment" data-movieid="{{item.id}}">
+        <view class="movie-title">{{item.title}}</view>
+        <view class="movie-average">观众评分：
+          <text class="movie-score">{{item.rating.average}}分</text>
+        </view>
+        <view class="movie-name">主演：
+          <text wx:for="{{item.casts}}" wx:key="{{index}}">{{item.name}}</text>
+        </view>
+        <view class="movie-year">年份：{{item.year}}</view>
+      </view>
+      <view class="movie-btns">
+        <van-button custom-class="movie-comment" type="info" size="small" catchtap="gotoComment" data-movieid="{{item.id}}">购票</van-button>
+      </view>
+    </view>
+  </van-tab>
+  <van-tab title="电视">
+    <!-- 电视 -->
+    <view class="tagsbtns">
+      <text class="tagsbtn {{num==index?'tagsbtn-act':''}}" wx:for="{{tagsBtn}}" wx:key="{{index}}"  bindtap="getSynopsis" data-id="{{item}}" data-index="{{index}}">{{item}}</text>
+    </view>
+    <van-row class="drama">
+      <van-col span="8" custom-class="drama-info" wx:for="{{tvList}}" wx:key="{{index}}">
+        <view data-dramaid="{{item.id}}" catchtap="gotoCommentTv">
+          <image class="drama-img" src="{{item.cover}}" data-dramaid="{{item.id}}"></image>
+          <view class="drama-title">{{item.title}}</view>
+          <view class="drama-average">
+            <text class="drama-score">{{item.rate}}分</text>
+            <van-rate size="{{ 12 }}" value="{{ score }}" bind:change="onScoreChange" />
+          </view>
+        </view>
+      </van-col>
+    </van-row>
+  </van-tab>
+</van-tabs>

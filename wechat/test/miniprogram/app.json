@@ -1,0 +1,39 @@
+{
+  "pages": [
+    "pages/movie/movie",
+    "pages/video/video",
+    "pages/profile/profile",
+    "pages/comment/comment",
+    "pages/commenttv/commenttv",
+    "pages/citys/citys"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ff4d64",
+    "navigationBarTitleText": "淘票票",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#777",
+    "selectedColor": "#ff4d64",
+    "list": [{
+      "pagePath": "pages/movie/movie",
+      "text": "电影",
+      "iconPath": "images/movie.png",
+      "selectedIconPath": "images/movie1.png"
+    },{
+      "pagePath": "pages/video/video",
+      "text": "影院",
+      "iconPath": "images/video.png",
+      "selectedIconPath": "images/video1.png"
+    },{
+      "pagePath": "pages/profile/profile",
+      "text": "我的",
+      "iconPath": "images/profile.png",
+      "selectedIconPath": "images/profile1.png"
+    }]
+  },
+  "sitemapLocation": "sitemap.json"
+}
